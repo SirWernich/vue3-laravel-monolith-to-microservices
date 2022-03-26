@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\UpdateInfoRequest;
+use App\Http\Requests\UpdatePasswordRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -52,7 +54,7 @@ class UserController extends Controller
         return \Auth::user();
     }
 
-    public function updateInfo(Request $request)
+    public function updateInfo(UpdateInfoRequest $request)
     {
         $user = \Auth::user();
 
@@ -61,7 +63,7 @@ class UserController extends Controller
         return response($user, Response::HTTP_ACCEPTED);
     }
 
-    public function updatePassword(Request $request)
+    public function updatePassword(UpdatePasswordRequest $request)
     {
         $user = \Auth::user();
 

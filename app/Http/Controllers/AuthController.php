@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
+    /*
+        run 'php artisan passport:client --personal' when db refreshed
+    */
     public function login(Request $request)
     {
         if (Auth::attempt($request->only('email', 'password'))) {
