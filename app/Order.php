@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Order
@@ -26,5 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
-    //
+    public function orderItems()
+    {
+        return $this->HasMany(OrderItem::class);
+    }
 }
