@@ -24,6 +24,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereLastName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read mixed $name
+ * @property-read mixed $total
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\OrderItem[] $orderItems
+ * @property-read int|null $order_items_count
  */
 class Order extends Model
 {

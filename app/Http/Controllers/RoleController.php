@@ -28,7 +28,6 @@ class RoleController extends Controller
     {
         $role = Role::create($request->only('name'));
 
-
         return response($role, Response::HTTP_CREATED);
     }
 
