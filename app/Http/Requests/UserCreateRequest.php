@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserCreateRequest extends FormRequest
@@ -13,7 +14,8 @@ class UserCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        // can do it here or on individual endpoints
+        return Gate::authorize('edit', 'users');
     }
 
     /**

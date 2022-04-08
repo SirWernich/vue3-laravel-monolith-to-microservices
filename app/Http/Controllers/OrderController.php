@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\OrderResource;
 use App\Order;
+use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -11,6 +12,8 @@ class OrderController extends Controller
 {
     public function index()
     {
+        Gate::authorize('view', 'orders');
+
         $orders = Order::paginate();
 
         return OrderResource::collection($orders);
@@ -18,11 +21,15 @@ class OrderController extends Controller
 
     public function show($id)
     {
+        Gate::authorize('view', 'orders');
+
         return new OrderResource(Order::find($id));
     }
 
     public function export()
     {
+        Gate::authorize('view', 'orders');
+
         $headers = [
             'Content-Type' => 'text/csv',
             'Content-Disposition' => 'attachment; filename=orders.csv',
