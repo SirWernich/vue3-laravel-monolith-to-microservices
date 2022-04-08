@@ -25,6 +25,8 @@ Route::post('login', 'AuthController@login');
 Route::post('register', 'AuthController@register');
 
 Route::group(['middleware' => 'auth:api'], function() {
+    Route::post('logout', 'AuthController@logout');
+
     Route::get('user', 'UserController@user');
     Route::get('export', 'OrderController@export');
     Route::get('chart', 'DashboardController@chart');
